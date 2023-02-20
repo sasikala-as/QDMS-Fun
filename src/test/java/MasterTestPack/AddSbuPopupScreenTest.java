@@ -15,9 +15,11 @@ import MasterPagePack.AddSbuPopupScreenPage;
 
 public class AddSbuPopupScreenTest extends SbuDriverInitial{
 	AddSbuPopupScreenPage sbumodel = new AddSbuPopupScreenPage();
-	
+
 	@Test(priority = 0)
 	public static void addsbumodel() throws InterruptedException {	
+		System.out.println("**********************Start checking Popup screen ADDSBU Window****************");	
+	
 // check "Add Sbu Popup screen" window visibility 
 		
 		AddSbuPopupScreenPage sbumodel = new AddSbuPopupScreenPage();
@@ -237,7 +239,7 @@ public class AddSbuPopupScreenTest extends SbuDriverInitial{
 				}
 				
 				Thread.sleep(2000); 
-				
+				System.out.println("*********************End checking Popup screen ADDSBU Window******************");	
 			}
 	  
 }

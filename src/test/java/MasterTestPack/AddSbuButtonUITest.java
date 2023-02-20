@@ -36,7 +36,7 @@ public class AddSbuButtonUITest extends SbuDriverInitial{
 		@Test
 		public static void addsbubutton()throws InterruptedException{ 
 		{
-			System.out.println("Start Add Sbu Button Checking UI");
+			System.out.println("*******************Start Add Sbu Button Checking UI******************");
 			AddSbuButtonUIPage table = new AddSbuButtonUIPage();
 			PageFactory.initElements(driver, table);
 				try {
@@ -422,7 +422,7 @@ public class AddSbuButtonUITest extends SbuDriverInitial{
 					testCase.log(Status.FAIL, "No Element");
 					testCase = extent.createTest("15.ADD-SBU-BUTTON-FONT-WEIGHT-UI");
 				}
-				System.out.println("END Add Sbu Button Checking UI");
+				System.out.println("****************END Add Sbu Button Checking UI*********************");
 		}	
   }
 }
