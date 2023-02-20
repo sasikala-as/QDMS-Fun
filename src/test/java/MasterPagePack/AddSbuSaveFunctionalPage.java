@@ -1,9 +1,11 @@
-package SBUPagePack;
+package MasterPagePack;
+
+import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CancelFunPage {
+public class AddSbuSaveFunctionalPage {
 
 
 	@FindBy(xpath="//*[@id ='usernameOrEmail']")
@@ -46,7 +48,10 @@ public class CancelFunPage {
 	@FindBy(xpath = "/html/body/div[3]/div/div[2]/div/div[2]/div[3]/div/button[2]")
 	public static WebElement Sbusavebutton;
 
-	
+	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[1]")
+	public static List<WebElement> SbuNameColumn;
+	@FindBy(xpath = "//li[@title='Next Page']/button")
+	public static WebElement NextPageBtn;
 	
 	
 	

@@ -1,4 +1,4 @@
-package SBUTestPack;
+package MasterTestPack;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -9,24 +9,26 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
-import SBUDriverBasePack.SbuDriverInitial;
-import SBUPagePack.TableSbuUIPage;
-import SBUPagePack.addsbumodelPage;
+import MasterDriverBasePack.SbuDriverInitial;
+import MasterPagePack.AddSbuButtonUIPage;
+import MasterPagePack.AddSbuPopupScreenPage;
 
-public class addsbumodelTest extends SbuDriverInitial{
-	addsbumodelPage sbumodel = new addsbumodelPage();
+public class AddSbuPopupScreenTest extends SbuDriverInitial{
+	AddSbuPopupScreenPage sbumodel = new AddSbuPopupScreenPage();
 	
 	@Test(priority = 0)
 	public static void addsbumodel() throws InterruptedException {	
-		addsbumodelPage sbumodel = new addsbumodelPage();
+// check "Add Sbu Popup screen" window visibility 
+		
+		AddSbuPopupScreenPage sbumodel = new AddSbuPopupScreenPage();
 		PageFactory.initElements(driver, sbumodel);
 		//Model Window visible 
 	 			 Thread.sleep(4000);
 			
-				boolean AcctualVisible = addsbumodelPage.addsbumodel.isDisplayed();
+				boolean AcctualVisible = AddSbuPopupScreenPage.addsbumodel.isDisplayed();
 				boolean ExpectedVisible = true;
 
-				testCase = extent.createTest("1.Model-Window-Visible");
+				testCase = extent.createTest("001.ADD-SBU-POPUP-SCREEN-Window-Visible");
 				try {
 					AssertJUnit.assertEquals(AcctualVisible, ExpectedVisible);
 					testCase.log(Status.INFO, "ActualElement :- " + AcctualVisible);
@@ -42,9 +44,10 @@ public class addsbumodelTest extends SbuDriverInitial{
 				
 			
 				 Thread.sleep(4000);
-	// Model Window position 
-
-				Point ActualLocation = addsbumodelPage.addsbumodel.getLocation();
+ 
+// check "Add Sbu Popup screen" position 
+				 
+				Point ActualLocation = AddSbuPopupScreenPage.addsbumodel.getLocation();
 
 				int actual_x = ActualLocation.getX();
 				int actual_y = ActualLocation.getY();
@@ -54,7 +57,7 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 				Point ExpectedLocation = new Point(383, 100);
 
-				testCase = extent.createTest("02-MODAL-POSITION");
+				testCase = extent.createTest("002-ADD-SBU-POPUP-SCREEN-POSITION");
 				try {
 					AssertJUnit.assertEquals(ActualLocation, ExpectedLocation);
 					testCase.log(Status.INFO, "ActualFontSize :- " + ActualLocation);
@@ -68,13 +71,13 @@ public class addsbumodelTest extends SbuDriverInitial{
 				
 				Thread.sleep(2000);
 
-	//Model Window size
-
-				Dimension ActualSize = addsbumodelPage.addsbumodel.getSize();
+// check "Add Sbu Popup screen" size 
+				
+				Dimension ActualSize = AddSbuPopupScreenPage.addsbumodel.getSize();
 				System.out.println("Size : " + ActualSize);
 				Dimension ExpectedSize = new Dimension(600, 230);
 
-				testCase = extent.createTest("003-MODAL-SIZE");
+				testCase = extent.createTest("003-ADD-SBU-POPUP-SCREEN-SIZE");
 				try {
 					AssertJUnit.assertEquals(ActualSize, ExpectedSize);
 					testCase.log(Status.INFO, "ActualSize :- " + ActualSize);
@@ -90,11 +93,11 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 	// Model Window background-color
 
-				String ActualButtonColor = addsbumodelPage.addsbumodel.getCssValue("background-color");
+				String ActualButtonColor = AddSbuPopupScreenPage.addsbumodel.getCssValue("background-color");
 				System.out.println("rgb :" + ActualButtonColor);
 				String ExpectedButtonColor = "rgba(255, 255, 255, 1)";
 
-				testCase = extent.createTest("004-MODAL-BACKGROUND-COLOR");
+				testCase = extent.createTest("004-ADD-SBU-POPUP-SCREEN-BACKGROUND-COLOR");
 				try {
 					AssertJUnit.assertEquals(ActualButtonColor, ExpectedButtonColor);
 					testCase.log(Status.INFO, "ActualButtonColor :- " + ActualButtonColor);
@@ -111,11 +114,11 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 	// Model Window border-color
 				
-				String ActualBorderColor = addsbumodelPage.addsbumodel.getCssValue("border-color");
+				String ActualBorderColor = AddSbuPopupScreenPage.addsbumodel.getCssValue("border-color");
 				System.out.println("rgb :" + ActualBorderColor);
 				String ExpectedBorderColor = "rgba(0, 0, 0, 0.85)";
 
-				testCase = extent.createTest("005-MODAL-BORDER-COLOR");
+				testCase = extent.createTest("005-ADD-SBU-POPUP-SCREEN-BORDER-COLOR");
 				try {
 					AssertJUnit.assertEquals(ActualBorderColor, ExpectedBorderColor);
 					testCase.log(Status.INFO, "ActualBorderColor :- " + ActualBorderColor);
@@ -129,14 +132,14 @@ public class addsbumodelTest extends SbuDriverInitial{
 				}
 				
 				Thread.sleep(2000);
-
+	
 	// Model Window overflow
-
-				String ActualOverflow = addsbumodelPage.addsbumodel.getCssValue("overflow");
+	
+				String ActualOverflow = AddSbuPopupScreenPage.addsbumodel.getCssValue("overflow");
 				System.out.println("overflow :" + ActualOverflow);
 				String ExpectedOverflow = "visible";
 
-				testCase = extent.createTest("006-MODAL-OVERFLOW-TYPE");
+				testCase = extent.createTest("006-ADD-SBU-POPUP-SCREEN-OVERFLOW-TYPE");
 				try {
 					AssertJUnit.assertEquals(ActualOverflow, ExpectedOverflow);
 					testCase.log(Status.INFO, "ActualOverflow :- " + ActualOverflow);
@@ -153,11 +156,11 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 	// Model element margin
 
-				String ActualMargin = addsbumodelPage.addsbumodel.getCssValue("margin");
+				String ActualMargin = AddSbuPopupScreenPage.addsbumodel.getCssValue("margin");
 				System.out.println("margin :" + ActualMargin);
 				String ExpectedMargin = "0px";
 
-				testCase = extent.createTest("007-MODAL-MARGIN-TYPE");
+				testCase = extent.createTest("007-ADD-SBU-POPUP-SCREEN-MARGIN-TYPE");
 				try {
 					AssertJUnit.assertEquals(ActualMargin, ExpectedMargin);
 					testCase.log(Status.INFO, "ActualMargin :- " + ActualMargin);
@@ -174,11 +177,11 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 	// ***** element cursor
 
-				String ActualActions = addsbumodelPage.addsbumodel.getCssValue("cursor");
+				String ActualActions = AddSbuPopupScreenPage.addsbumodel.getCssValue("cursor");
 				System.out.println("cursor :" + ActualActions);
 				String ExpectedActions = "auto";
 
-				testCase = extent.createTest("008-MODAL-CURSOR-TYPE");
+				testCase = extent.createTest("008-ADD-SBU-POPUP-SCREEN-CURSOR-TYPE");
 				try {
 				
 					AssertJUnit.assertEquals(ActualActions, ExpectedActions);
@@ -195,11 +198,11 @@ public class addsbumodelTest extends SbuDriverInitial{
 
 	// ***** element z- index
 
-				String ActualZindex = addsbumodelPage.addsbumodel.getCssValue("z-index");
+				String ActualZindex = AddSbuPopupScreenPage.addsbumodel.getCssValue("z-index");
 				System.out.println("z-index :" + ActualZindex);
 				String ExpectedZindex = "auto";
 
-				testCase = extent.createTest("009-MODAL-Z-INDEX-TYPE");
+				testCase = extent.createTest("009-ADD-SBU-POPUP-SCREEN-Z-INDEX-TYPE");
 				try {
 					AssertJUnit.assertEquals(ActualZindex, ExpectedZindex);
 					testCase.log(Status.INFO, "ActualZindex :- " + ActualZindex);
@@ -218,10 +221,10 @@ public class addsbumodelTest extends SbuDriverInitial{
 				
 				Actions action = new Actions(driver);
 		        action.moveByOffset(0, 0).click().build().perform();
-		    	boolean AcctualAfterClick = addsbumodelPage.addsbumodel.isDisplayed();
+		    	boolean AcctualAfterClick = AddSbuPopupScreenPage.addsbumodel.isDisplayed();
 				boolean ExpectedAfterClick = true;
 				
-				testCase = extent.createTest("013-MODAL-INVISIBLE-ONCLICK-OUTSIDE");
+				testCase = extent.createTest("010-ADD-SBU-POPUP-SCREEN-INVISIBLE-ONCLICK-OUTSIDE");
 				try {
 					AssertJUnit.assertEquals(AcctualAfterClick, ExpectedAfterClick);
 					testCase.log(Status.INFO, "ActualElement :- " + AcctualAfterClick);

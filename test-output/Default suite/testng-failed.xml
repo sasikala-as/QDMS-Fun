@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SBUTestPack.Testcase001_ADDSBU">
+      <class name="MasterTestPack.Testcase001_ADDSBU">
         <methods>
+          <include name="SbusitebarbuttonClick"/>
+          <include name="Addsbu"/>
           <include name="Masterclick"/>
+          <include name="addsbubuttonclickMethod"/>
           <include name="main"/>
           <include name="closeChrome"/>
         </methods>
-      </class> <!-- SBUTestPack.Testcase001_ADDSBU -->
+      </class> <!-- MasterTestPack.Testcase001_ADDSBU -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

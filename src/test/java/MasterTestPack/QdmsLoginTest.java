@@ -1,4 +1,4 @@
-package SBUTestPack;
+package MasterTestPack;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import SBUDriverBasePack.SbuDriverInitial;
-import SBUPagePack.LoginPage;
+import MasterDriverBasePack.SbuDriverInitial;
+import MasterPagePack.QdmsLoginPage;
 
 
-public class LoginTest extends SbuDriverInitial{
+public class QdmsLoginTest extends SbuDriverInitial{
 	
-LoginPage loginpg = new LoginPage();
+QdmsLoginPage loginpg = new QdmsLoginPage();
 	
 	@Test
 	public void logincheck() throws InterruptedException, IOException {
@@ -25,7 +25,7 @@ LoginPage loginpg = new LoginPage();
 		SoftAssert sa = new SoftAssert();
 		Thread.sleep(2000);
 		FileInputStream file = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\test\\java\\SBUDataPack\\SBUData.xlsx");
+				System.getProperty("user.dir") + "\\src\\test\\java\\MasterDataPack\\SBUData.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheet("login");
 
@@ -37,9 +37,9 @@ LoginPage loginpg = new LoginPage();
 			String pWord = (String) row.getCell(1).getStringCellValue();
 			String expec = (String) row.getCell(2).getStringCellValue();
 
-			LoginPage.username.sendKeys(uName);
-			LoginPage.password.sendKeys(pWord);
-			LoginPage.login.click();
+			QdmsLoginPage.username.sendKeys(uName);
+			QdmsLoginPage.password.sendKeys(pWord);
+			QdmsLoginPage.login.click();
 			
 			Thread.sleep(2500);
 			String actualurl = driver.getCurrentUrl();

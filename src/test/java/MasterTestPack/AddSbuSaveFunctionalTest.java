@@ -1,10 +1,11 @@
-package SBUTestPack;
+package MasterTestPack;
 
 
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.AssertJUnit;
 import java.io.FileInputStream;
@@ -18,24 +19,29 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.aventstack.extentreports.Status;
 
-import SBUPagePack.CancelFunPage;
+import MasterPagePack.AddSbuSaveFunctionalPage;
 
 
-public class CancelFunTest extends LoginTest{
-	CancelFunPage canfunpg = new CancelFunPage();
-
+public class AddSbuSaveFunctionalTest extends QdmsLoginTest{
+	AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
+	static int ActualTotalPage = 1;
+	static boolean TableData = false;
+	
 	@Test(priority =0)
 	public static void  Masterclick() throws InterruptedException {
 		
-	CancelFunPage canfunpg = new CancelFunPage();
+//  Click "Master card" HomePage QDMS Screen
+		
+	AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 	PageFactory.initElements(driver, canfunpg);
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	//CancelFunPage.mastercard.click();
-	boolean AcctualmasterclickElement=CancelFunPage.mastercard.isEnabled();
+	boolean AcctualmasterclickElement=AddSbuSaveFunctionalPage.mastercard.isEnabled();
     boolean ExpectedmasterElement=true;
-    CancelFunPage.mastercard.click();
+    Thread.sleep(5000);
+    AddSbuSaveFunctionalPage.mastercard.click();
     boolean elementvisible = true;
-    testCase = extent.createTest("MASTER-CARD-VISIBLE");
+    testCase = extent.createTest("001.MASTER-CARD-VISIBLE");
 	try {
 		AssertJUnit.assertEquals(AcctualmasterclickElement,ExpectedmasterElement);
 	} catch (AssertionError e) {
@@ -57,18 +63,20 @@ public class CancelFunTest extends LoginTest{
 	}
 	
 	
+//	Click "SBU Button" in Master Screen	
+	
 	@Test(priority =1)
 	public static void  SbusitebarbuttonClick() throws InterruptedException {
-	
-	CancelFunPage canfunpg = new CancelFunPage();
+
+	AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 	PageFactory.initElements(driver, canfunpg);
 	Thread.sleep(3000); 
-	CancelFunPage.sbusite.click();
-	boolean AcctualsbuElement=CancelFunPage.sbusite.isEnabled();
+	AddSbuSaveFunctionalPage.sbusite.click();
+	boolean AcctualsbuElement=AddSbuSaveFunctionalPage.sbusite.isEnabled();
     boolean ExpectedsbuElement=true;
 
     boolean elementvisible = true;
-    testCase = extent.createTest("SBU-BUTTON-VISIBLE");
+    testCase = extent.createTest("002. SBU-BUTTON-VISIBLE");
 	try {
 		AssertJUnit.assertEquals(AcctualsbuElement,ExpectedsbuElement);
 	} catch (AssertionError e) {
@@ -88,19 +96,22 @@ public class CancelFunTest extends LoginTest{
 		Thread.sleep(2000);	
 	}
 	
+	
+//	Check  "ADD SBU Button" VISIBLE in Master Screen		
+	
 	@Test(priority =2)
 	public static void  addsbubuttonclickMethod() throws InterruptedException {
 	
-	CancelFunPage canfunpg = new CancelFunPage();
+	AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 	PageFactory.initElements(driver, canfunpg);
 	Thread.sleep(2000);
-	CancelFunPage.addsbubtn.click();
+	AddSbuSaveFunctionalPage.addsbubtn.click();
 	Thread.sleep(2000);
-	boolean AcctualsbubtnElement=CancelFunPage.addsbubtn.isEnabled();
+	boolean AcctualsbubtnElement=AddSbuSaveFunctionalPage.addsbubtn.isEnabled();
     boolean ExpectedsbubtnElement=true;
 
     boolean elementvisible = true;
-    testCase = extent.createTest("ADDSBU-BUTTON-VISIBLE");
+    testCase = extent.createTest("003.ADD SBU-BUTTON-VISIBLE");
 	try {
 		AssertJUnit.assertEquals(AcctualsbubtnElement,ExpectedsbubtnElement);
 	} catch (AssertionError e) {
@@ -120,19 +131,20 @@ public class CancelFunTest extends LoginTest{
 		Thread.sleep(2000);	
 	}
 	
+// Check the pop-up visibility
 	
 	@Test(priority = 3)
 	public static void  openSBUaddmodelMethod() throws InterruptedException {
-		CancelFunPage canfunpg = new CancelFunPage();
+		AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 		PageFactory.initElements(driver, canfunpg);
 		Thread.sleep(3000);
 		//CancelFunPage.addsbubtn.click();
 		//Thread.sleep(2000);
-		boolean AcctualbtnaddsbuclickElement=CancelFunPage.sbumodel.isEnabled();
+		boolean AcctualbtnaddsbuclickElement=AddSbuSaveFunctionalPage.sbumodel.isEnabled();
         boolean ExpectedaddsbuclickopenElement=true;
 
         boolean elementvisible = true;
-        testCase = extent.createTest(" VIEW SBU MODEl-VISIBLE");
+        testCase = extent.createTest("004.VIEW SBU MODEl-VISIBLE");
 		try {
 			AssertJUnit.assertEquals(AcctualbtnaddsbuclickElement,ExpectedaddsbuclickopenElement);
 		} catch (AssertionError e) {
@@ -161,7 +173,7 @@ public class CancelFunTest extends LoginTest{
 	
 	@Test(priority = 4)
 	public static void  AddSbuDataMethod() throws InterruptedException, IOException {
-		CancelFunPage canfunpg = new CancelFunPage();
+		AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 		PageFactory.initElements(driver, canfunpg);
 		
 		/*FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\SBUDataPack\\SBUData.xlsx");
@@ -186,26 +198,27 @@ public class CancelFunTest extends LoginTest{
 	
 			*/
 		
-		CancelFunPage.sbufield.sendKeys("SBU SASI"); 
-		CancelFunPage.desfield.sendKeys("Sasi DESC");
+		AddSbuSaveFunctionalPage.sbufield.sendKeys("SBU SASI"); 
+		AddSbuSaveFunctionalPage.desfield.sendKeys("Sasi DESC");
 	}
 	
-		
+// Check the Add Sbu button save enable
+	
 		@Test(priority = 5)
 public static void  savebtnMethod() throws InterruptedException, IOException {
-			CancelFunPage canfunpg = new CancelFunPage();
+			AddSbuSaveFunctionalPage canfunpg = new AddSbuSaveFunctionalPage();
 			PageFactory.initElements(driver, canfunpg);
-			CancelFunPage.Sbusavebutton.click();
-			
-		boolean AcctualcancelElement=CancelFunPage.Sbusavebutton.isSelected();
-        boolean ExpectedcancelElement=false;
-
+			//CancelFunPage.Sbusavebutton.click();
+		Thread.sleep(2000);	
+		boolean AcctualcancelElement=AddSbuSaveFunctionalPage.Sbusavebutton.isEnabled();
+        boolean ExpectedcancelElement=true;
+        AddSbuSaveFunctionalPage.Sbusavebutton.click();
         boolean elementvisible = true;
         testCase = extent.createTest("DATA ADDED & SAVED DATA");
 		try {
 			AssertJUnit.assertEquals(AcctualcancelElement,ExpectedcancelElement);
 		} catch (AssertionError e) {
-			elementvisible=true;
+			elementvisible=false;
 		}
 		if (elementvisible) {
 			testCase.log(Status.INFO,"ActualElement :- " + AcctualcancelElement);
@@ -220,7 +233,48 @@ public static void  savebtnMethod() throws InterruptedException, IOException {
 		}
 			Thread.sleep(2000);	
 		}
+/*		
+		public static void PageCount() throws InterruptedException {
+			
+			CancelFunPage canfunpg = new CancelFunPage();
+			PageFactory.initElements(driver, canfunpg);
+			boolean Enablity = CancelFunPage.NextPageBtn.isEnabled();
+			while (Enablity) {
+				Thread.sleep(1000);
+				CancelFunPage.NextPageBtn.click();
+				ActualTotalPage = ActualTotalPage + 1;
+				Enablity = CancelFunPage.NextPageBtn.isEnabled();
+			}
+			Thread.sleep(000);
+			driver.navigate().refresh();
+			Thread.sleep(1000);
+		}
+
+		public static void CheckDataTable() throws InterruptedException {
+			CancelFunPage canfunpg = new CancelFunPage();
+			PageFactory.initElements(driver, canfunpg);
+			for (int i = 1; i <= ActualTotalPage; i++) {
+				for (WebElement ele1 : CancelFunPage.SbuNameColumn) {
+					String value1 = ele1.getText();
+					// System.out.println(value);
+					if (value1.contains(value1)) {
+						TableData = true;
+						break;
+					} 
+				}
+				if (TableData) {
+					break;
+				}
+				if (CancelFunPage.NextPageBtn.isEnabled()) {
+					Thread.sleep(1000);
+					CancelFunPage.NextPageBtn.click();
+				}
+			}
+			}
+*/
+		}
+
 		
+
+
 	
-	
-}

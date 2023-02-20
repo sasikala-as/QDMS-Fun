@@ -1,9 +1,9 @@
-package SBUPagePack;
+package MasterPagePack;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+public class QdmsLoginPage {
 
 	@FindBy(xpath="//*[@id ='usernameOrEmail']")
 	public static WebElement username;
